@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマホでWeb開発</title>
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+    
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 600px;
+            background-color: rgb(186, 182, 182);
+            color: #060606;
+            text-align: left;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            font-size: 14px; /* ツールチップテキストのフォントサイズを指定 */
+        }
+    
+        .tooltiptext i {
+            color: green; /* アイコンの色 */
+            font-size: 16px; /* アイコンのサイズを統一 */
+            width: 20px; /* アイコンの幅を統一 */
+            height: 20px; /* アイコンの高さを統一 */
+            vertical-align: middle; /* アイコンをテキストの中央に揃える */
+            margin-right: 8px; /* アイコンとテキストの間にスペースを追加 */
+        }
+
+        .tooltiptext a, .tooltiptext span {
+            display: inline-block;
+            line-height: 1.5; /* テキスト行の高さを揃える */
+            vertical-align: middle; /* テキストの縦揃え */
+        }
+
+    
+        /* ツールチップ表示時にテキストを見えるようにする */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <body>
+        <h1>
+            <a href="https://github.com/WTS25kt" target="_blank">スマホでWeb開発</a>
+            <div class="tooltip" onclick="toggleTooltip()">手順書
+                <span class="tooltiptext">
+                    <i class="fas fa-check-circle"></i> 0. 事前確認:生成AI等で作りたいアプリがある程度、設計できていること<br>
+                    <a href="https://github.com/WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br>
+                    <i class="fas fa-mobile-alt"></i> 2. iPhoneのGitHubアプリでファイルを新規作成<br>
+                    <i class="fas fa-mobile-alt"></i> 3. 生成AIで作成したソースコードをコピー<br>
+                    <i class="fas fa-mobile-alt"></i> 4. 手順2のファイルに貼り付け<br>
+                    <i class="fas fa-mobile-alt"></i> 5. 複数のソースコードがある場合は手順2から4を繰り返す<br>
+                    <i class="fas fa-laptop"></i> 6. MacBookのGitHub Desktopでクローン
+                </span>
+            </div>
+        </h1>    
+    <script>
+        function toggleTooltip() {
+            var tooltipText = document.querySelector('.tooltiptext');
+            if (tooltipText.style.visibility === 'visible') {
+                tooltipText.style.visibility = 'hidden';
+            } else {
+                tooltipText.style.visibility = 'visible';
+            }
+        }
+    </script>
+    </body>
+</html>
