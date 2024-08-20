@@ -14,7 +14,7 @@
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 600px;
-            background-color: rgb(186, 182, 182);
+            background-color: rgb(225, 236, 239);
             color: #060606;
             text-align: left;
             border-radius: 5px;
@@ -43,6 +43,14 @@
         .tooltip:hover .tooltiptext {
             visibility: visible;
         }
+
+        @media (max-width: 600px) {
+            /* スマホ向けのスタイルをここに記述 */
+            .tooltip .tooltiptext {
+                width: 100%; /* 幅を画面に合わせる */
+                font-size: 12px; /* フォントサイズを調整 */
+            }
+        }
     </style>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -53,7 +61,7 @@
             <div class="tooltip" onclick="toggleTooltip()">手順書
                 <span class="tooltiptext">
                     <i class="fas fa-check-circle"></i> 0. 事前確認:生成AI等で作りたいアプリがある程度、設計できていること<br>
-                    <a href="https://github.com/WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br>
+                    <a href="https://github.com/WTS25kt?utm_source=ghbrowser" target="_blank"><i class="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br>
                     <i class="fas fa-mobile-alt"></i> 2. iPhoneのGitHubアプリでファイルを新規作成<br>
                     <i class="fas fa-mobile-alt"></i> 3. 生成AIで作成したソースコードをコピー<br>
                     <i class="fas fa-mobile-alt"></i> 4. 手順2のファイルに貼り付け<br>
