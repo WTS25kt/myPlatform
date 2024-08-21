@@ -12,8 +12,8 @@
         }
     
         .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 600px;
+            max-width: 100%; /* 幅を画面に合わせる */
+            width: auto; /* 自然な幅 */
             background-color: rgb(225, 236, 239);
             color: #060606;
             text-align: left;
@@ -47,7 +47,6 @@
         @media (max-width: 600px) {
             /* スマホ向けのスタイルをここに記述 */
             .tooltip .tooltiptext {
-                width: 100%; /* 幅を画面に合わせる */
                 font-size: 12px; /* フォントサイズを調整 */
             }
         }
