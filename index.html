@@ -12,10 +12,8 @@
         }
         
         .tooltip .tooltiptext {
-            visibility: hidden; /* 非表示の初期設定 */
-            opacity: 0; /* 初期状態で透明に */
-            max-width: 600px; /* 最大幅を600pxに設定 */
-            width: auto; /* 自然な幅 */
+            max-width: 90vw; /* ビューポートの幅の90%に制限 */
+            width: auto;
             background-color: rgb(225, 236, 239);
             color: #060606;
             text-align: left;
@@ -23,10 +21,9 @@
             padding: 5px;
             position: absolute;
             z-index: 1;
-            font-size: 14px; /* ツールチップテキストのフォントサイズを指定 */
-            word-wrap: break-word; /* 長い単語がはみ出さないようにする */
-            transition: opacity 0.3s ease-in-out; /* スムーズに表示するためのアニメーション */
-            }
+            font-size: 14px;
+            word-wrap: break-word;
+        }
         
         .tooltip:hover .tooltiptext {
             visibility: visible; /* ホバー時に表示 */
@@ -51,7 +48,7 @@
         @media (max-width: 600px) {
             /* スマホ向けのスタイルをここに記述 */
             .tooltip .tooltiptext {
-                max-width: 90%; /* モバイルでは90%に調整 */
+                max-width: 90vw; /* モバイルではビューポートの幅の90%に制限 */
                 font-size: 12px; /* フォントサイズを調整 */
             }
         }
