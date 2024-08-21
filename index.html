@@ -12,7 +12,8 @@
         }
     
         .tooltip .tooltiptext {
-            max-width: 100%; /* 幅を画面に合わせる */
+            visibility: hidden;
+            max-width: 600px; /* 最大幅を600pxに設定 */
             width: auto; /* 自然な幅 */
             background-color: rgb(225, 236, 239);
             color: #060606;
@@ -22,6 +23,7 @@
             position: absolute;
             z-index: 1;
             font-size: 14px; /* ツールチップテキストのフォントサイズを指定 */
+            word-wrap: break-word; /* 長い単語がはみ出さないようにする */
         }
     
         .tooltiptext i {
@@ -47,6 +49,7 @@
         @media (max-width: 600px) {
             /* スマホ向けのスタイルをここに記述 */
             .tooltip .tooltiptext {
+                max-width: 90%; /* モバイルでは90%に調整 */
                 font-size: 12px; /* フォントサイズを調整 */
             }
         }
