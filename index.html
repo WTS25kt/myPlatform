@@ -5,83 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマホでWeb開発</title>
     <style>
+        /* 通常のツールチップスタイル */
         .tooltip {
             position: relative;
             display: inline-block;
             cursor: pointer;
         }
         
+        /* ツールチップの内容部分 */
         .tooltip .tooltiptext {
-            max-width: 90vw; /* ビューポートの幅の90%に制限 */
-            width: auto;
+            visibility: hidden; /* 初期状態では非表示 */
+            opacity: 0; /* 初期状態で透明にする */
+            transition: opacity 0.3s ease-in-out; /* 表示のアニメーション */
             background-color: rgb(225, 236, 239);
             color: #060606;
             text-align: left;
             border-radius: 5px;
-            padding: 5px;
-            position: absolute;
+            padding: 20px; /* 余白を広めに設定 */
+            position: fixed; /* 固定位置 */
             z-index: 1;
-            font-size: 14px;
-            word-wrap: break-word;
+            top: 5%; /* 上から5% */
+            left: 5%; /* 左から5% */
+            right: 5%; /* 右から5% */
+            bottom: 5%; /* 下から5% */
+            max-width: 90%; /* 幅は最大90%まで */
+            max-height: 90%; /* 高さは最大90%まで */
+            overflow-y: auto; /* コンテンツが溢れた場合にスクロール可能にする */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* シャドウを追加 */
         }
-        
-        .tooltip:hover .tooltiptext {
-            visibility: visible; /* ホバー時に表示 */
-            opacity: 1; /* フェードイン効果 */
-        }
-        
+
+        /* アイコンとテキストの調整 */
         .tooltiptext i {
             color: green; /* アイコンの色 */
-            font-size: 16px; /* アイコンのサイズを統一 */
-            width: 20px; /* アイコンの幅を統一 */
-            height: 20px; /* アイコンの高さを統一 */
-            vertical-align: middle; /* アイコンをテキストの中央に揃える */
-            margin-right: 8px; /* アイコンとテキストの間にスペースを追加 */
+            font-size: 16px; /* アイコンのサイズ */
+            width: 20px;
+            height: 20px;
+            vertical-align: middle; /* アイコンをテキスト中央に揃える */
+            margin-right: 8px; /* アイコンとテキストの間にスペース */
         }
-        
+
         .tooltiptext a, .tooltiptext span {
             display: inline-block;
-            line-height: 1.5; /* テキスト行の高さを揃える */
-            vertical-align: middle; /* テキストの縦揃え */
+            line-height: 1.5;
+            vertical-align: middle;
         }
-        
-        @media (max-width: 600px) {
-            /* スマホ向けのスタイルをここに記述 */
-            .tooltip .tooltiptext {
-                max-width: 90vw; /* モバイルではビューポートの幅の90%に制限 */
-                font-size: 12px; /* フォントサイズを調整 */
-            }
+
+        /* ツールチップ表示時にテキストを表示 */
+        .tooltip-active .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <body>
-        <h1>
-            <!--iPhone12でリンクを開くとサードパティアプリが開いてしまうので、その対策としてGoogle検索結果ページを開くように対応-->
-            <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank">スマホでWeb開発</a>
-            <div class="tooltip" onclick="toggleTooltip()">手順書
-                <span class="tooltiptext">
-                    <i class="fas fa-check-circle"></i> 0. 事前確認:生成AI等で作りたいアプリがある程度、設計できていること<br>
-                    <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br>
-                    <!--iPhone12で以下のリンクを開くとサードパティアプリ（GitHubのアプリ）が開く想定-->
-                    <a href="https://github.com/WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 2. iPhoneのGitHubアプリでファイルを新規作成</a><br>
-                    <i class="fas fa-mobile-alt"></i> 3. 生成AIで作成したソースコードをコピー<br>
-                    <i class="fas fa-mobile-alt"></i> 4. 手順2のファイルに貼り付け<br>
-                    <i class="fas fa-mobile-alt"></i> 5. 複数のソースコードがある場合は手順2から4を繰り返す<br>
-                    <i class="fas fa-laptop"></i> 6. MacBookのGitHub Desktopでクローン
-                </span>
+</head>
+<body>
+    <h1>
+        <!--iPhone12でリンクを開くとサードパティアプリが開いてしまうので、その対策としてGoogle検索結果ページを開くように対応-->
+        <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank">スマホでWeb開発</a>
+        <div class="tooltip" onclick="toggleTooltip()">手順書
+            <div class="tooltiptext">
+                <i class="fas fa-check-circle"></i> 0. 事前確認:生成AI等で作りたいアプリがある程度、設計できていること<br>
+                <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br>
+                <!--iPhone12で以下のリンクを開くとサードパティアプリ（GitHubのアプリ）が開く想定-->
+                <a href="https://github.com/WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 2. iPhoneのGitHubアプリでファイルを新規作成</a><br>
+                <i class="fas fa-mobile-alt"></i> 3. 生成AIで作成したソースコードをコピー<br>
+                <i class="fas fa-mobile-alt"></i> 4. 手順2のファイルに貼り付け<br>
+                <i class="fas fa-mobile-alt"></i> 5. 複数のソースコードがある場合は手順2から4を繰り返す<br>
+                <i class="fas fa-laptop"></i> 6. MacBookのGitHub Desktopでクローン
             </div>
-        </h1>    
+        </div>
+    </h1>    
+
     <script>
         function toggleTooltip() {
-            var tooltipText = document.querySelector('.tooltiptext');
-            if (tooltipText.style.visibility === 'visible') {
-                tooltipText.style.visibility = 'hidden';
+            var tooltip = document.querySelector('.tooltip');
+            if (tooltip.classList.contains('tooltip-active')) {
+                tooltip.classList.remove('tooltip-active');
             } else {
-                tooltipText.style.visibility = 'visible';
+                tooltip.classList.add('tooltip-active');
             }
         }
-    </script>
-    </body>
+    </script>        
+</body>
 </html>
