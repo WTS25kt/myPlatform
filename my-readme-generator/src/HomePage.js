@@ -25,11 +25,13 @@ function HomePage() {
 }
 
 function toggleTooltip() {
-  const tooltip = document.querySelector('.tooltip');
-  if (tooltip.classList.contains('tooltip-active')) {
-    tooltip.classList.remove('tooltip-active');
+  const tooltipText = document.querySelector('.tooltiptext');
+  if (tooltipText.style.visibility === 'visible') {
+    tooltipText.style.visibility = 'hidden';
+    tooltipText.style.opacity = 0;
   } else {
-    tooltip.classList.add('tooltip-active');
+    tooltipText.style.visibility = 'visible';
+    tooltipText.style.opacity = 1;
   }
 }
 
