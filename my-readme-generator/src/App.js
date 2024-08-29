@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './HomePage';
 import ReadmeGenerator from './ReadmeGenerator';
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={HomePage} />
-        <Route path="/readme-generator" component={ReadmeGenerator} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/readme-generator" element={<ReadmeGenerator />} />
+      </Routes>
     </Router>
   );
 }
