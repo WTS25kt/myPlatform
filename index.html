@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スマホでWeb開発</title>
     <style>
-        /* 通常のツールチップスタイル */
         .tooltip {
             position: relative;
             display: inline-block;
             cursor: pointer;
         }
         
-        /* ツールチップの内容部分 */
         .tooltip .tooltiptext {
             visibility: hidden; /* 初期状態では非表示 */
             opacity: 0; /* 初期状態で透明にする */
@@ -36,37 +34,37 @@
 
         /* アイコンとテキストの調整 */
         .tooltiptext i {
-            color: green; /* アイコンの色 */
-            font-size: 16px; /* アイコンのサイズ */
+            color: green;
+            font-size: 16px;
             width: 20px;
             height: 20px;
-            vertical-align: middle; /* アイコンをテキスト中央に揃える */
-            margin-right: 8px; /* アイコンとテキストの間にスペース */
+            vertical-align: middle;
+            margin-right: 8px;
         }
-
+        
         .tooltiptext a, .tooltiptext span {
             display: inline-block;
             line-height: 1.5;
             vertical-align: middle;
         }
-
-        /* ツールチップ表示時にテキストを表示 */
-        .tooltip-active .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+        
+        @media (max-width: 600px) {
+            .tooltip .tooltiptext {
+                max-width: 90vw;
+                font-size: 12px;
+            }
         }
     </style>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <h1>
-        <!--iPhone12でリンクを開くとサードパティアプリが開いてしまうので、その対策としてGoogle検索結果ページを開くように対応-->
         <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank">スマホでWeb開発</a>
         <div class="tooltip" onclick="toggleTooltip()">手順書
             <div class="tooltiptext">
                 <i class="fas fa-check-circle"></i> 0. 事前確認:生成AI等で作りたいアプリがある程度、設計できていること<br>
                 <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br>
-                <!--iPhone12で以下のリンクを開くとサードパティアプリ（GitHubのアプリ）が開く想定-->
                 <a href="https://github.com/WTS25kt" target="_blank"><i class="fas fa-mobile-alt"></i> 2. iPhoneのGitHubアプリでファイルを新規作成</a><br>
                 <i class="fas fa-mobile-alt"></i> 3. 生成AIで作成したソースコードをコピー<br>
                 <i class="fas fa-mobile-alt"></i> 4. 手順2のファイルに貼り付け<br>
@@ -74,8 +72,9 @@
                 <i class="fas fa-laptop"></i> 6. MacBookのGitHub Desktopでクローン
             </div>
         </div>
-    </h1>    
-
+    </h1>
+    <h2>新しいページへ</h2>
+    <p><a href="/path-to-your-react-app">READMEジェネレーターを開く</a></p>
     <script>
         function toggleTooltip() {
             var tooltip = document.querySelector('.tooltip');
@@ -85,6 +84,6 @@
                 tooltip.classList.add('tooltip-active');
             }
         }
-    </script>        
+    </script>
 </body>
 </html>
