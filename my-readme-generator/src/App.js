@@ -1,14 +1,16 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from './HomePage';
 import ReadmeGenerator from './ReadmeGenerator';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <ReadmeGenerator />
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/readme-generator" component={ReadmeGenerator} />
+      </Switch>
+    </Router>
   );
 }
 

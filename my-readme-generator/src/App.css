@@ -36,3 +36,53 @@
     transform: rotate(360deg);
   }
 }
+
+/* index.html内のStyleをApp.cssに移植 */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-color: rgb(225, 236, 239);
+  color: #060606;
+  text-align: left;
+  border-radius: 5px;
+  padding: 20px;
+  position: fixed;
+  z-index: 1;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tooltiptext i {
+  color: green;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.tooltiptext a, .tooltiptext span {
+  display: inline-block;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .tooltip .tooltiptext {
+      max-width: 90vw;
+      font-size: 12px;
+  }
+}
