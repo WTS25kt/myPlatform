@@ -5,11 +5,11 @@ function HomePage() {
   return (
     <div>
       <h1>
-        <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank" rel="noreferrer">スマホでWeb開発</a>
+        <a href="https://github.com/WTS25kt" target="_blank" rel="noreferrer">スマホでWeb開発</a>
         <div className="tooltip" onClick={toggleTooltip}>手順書
           <div className="tooltiptext">
             <i className="fas fa-check-circle"></i> 0. 事前確認:生成AI等で作りたいアプリがある程度、設計できていること<br />
-            <a href="https://github.com/WTS25kt" target="_blank" rel="noreferrer"><i className="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br />
+            <a href="https://www.google.com/search?q=GitHub+WTS25kt" target="_blank" rel="noreferrer"><i className="fas fa-mobile-alt"></i> 1. GitHubでリポジトリを新規作成</a><br />
             <a href="https://github.com/WTS25kt" target="_blank" rel="noreferrer"><i className="fas fa-mobile-alt"></i> 2. iPhoneのGitHubアプリでファイルを新規作成</a><br />
             <i className="fas fa-mobile-alt"></i> 3. 生成AIで作成したソースコードをコピー<br />
             <i className="fas fa-mobile-alt"></i> 4. 手順2のファイルに貼り付け<br />
